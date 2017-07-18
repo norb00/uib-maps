@@ -3,11 +3,13 @@ import { NgModule, ApplicationRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 
+import { DirectionsMapDirective } from './google-map.directive';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, DirectionsMapDirective
   ],
   imports: [
     BrowserModule,

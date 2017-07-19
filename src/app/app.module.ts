@@ -4,21 +4,30 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 
 import { DirectionsMapDirective } from './google-map.directive';
+import { PointListComponent } from './points-list.component';
+import { NgbdModalContent } from './modal-content.component';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent, DirectionsMapDirective
+    AppComponent,
+    DirectionsMapDirective,
+    PointListComponent,
+    NgbdModalContent
   ],
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyCLYQSecfjnLhKNydpPtkXjS_KK5c7zKFo', libraries: ['places'] }),
+    NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule
   ],
   providers: [],
+  entryComponents: [ NgbdModalContent ],
   schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })

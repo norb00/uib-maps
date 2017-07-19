@@ -2,6 +2,8 @@ import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core'
 import { FormControl } from '@angular/forms';
 import { AgmCoreModule, MapsAPILoader, AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
 import { DirectionsMapDirective } from './google-map.directive';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdModalContent } from './modal-content.component';
 import {} from '@types/googlemaps';
 
 declare var google: any;
@@ -58,7 +60,8 @@ export class AppComponent implements OnInit {
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     private gmapsApi: GoogleMapsAPIWrapper,
-    private _elementRef: ElementRef
+    private _elementRef: ElementRef,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -156,6 +159,14 @@ export class AppComponent implements OnInit {
 
   private getMapCusotmStyles() {
     // Write your Google Map Custom Style Code Here.
+  }
+
+  private openList() {
+    console.log('open list');
+    const modalRef = this.modalService.open(NgbdModalContent, {
+      windowClass: 'modalw',
+      size: 'lg'
+    });
   }
 
 }

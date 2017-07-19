@@ -1,19 +1,22 @@
-<h1 (click)="showMap=!showMap">{{ title }}</h1>
+<!--h1 (click)="showMap=!showMap">{{ title }}</h1-->
 
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
-<div>{{showMap}} {{zoom}}</div>
-<div class="form-group">
-    <input placeholder="Enter source location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #pickupInput [formControl]="destinationInput">
-    <input placeholder="Enter destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #pickupOutput [formControl]="destinationOutput" >
+<div class="container-fluid">
+    <span class="icon" (click)="openList()">LIST</span>
+    <div class="form-group">
+        <input placeholder="Enter source location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #pickupInput [formControl]="destinationInput">
+        <input placeholder="Enter destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #pickupOutput [formControl]="destinationOutput" >
+    </div>
+    <agm-map class="sebm-google-map-container"
+        *ngIf="showMap" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        <sebm-google-map-directions [origin]="origin" [destination]="destination"></sebm-google-map-directions>
+    </agm-map>
 </div>
-<agm-map class="sebm-google-map-container"
-    *ngIf="showMap" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    <sebm-google-map-directions [origin]="origin" [destination]="destination"></sebm-google-map-directions>
-</agm-map>
+<!--point-list></point-list-->
 
-<div class="container">
+<!--div class="container">
     <h1>Angular 2 + Google Maps Places Autocomplete</h1>
     <div class="form-group">
     <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
@@ -21,4 +24,4 @@
     <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
     </agm-map>
-</div>
+</div-->

@@ -1,0 +1,11 @@
+<div class="plist">
+  <ul class="table table-striped table-bordered border-1">
+    <li *ngFor="let point of points" (click)="selectPoint(point)" class="row my-2">
+      <div class="col-md-1">{{ point.id }}</div>
+      <div class="col-md-4">{{ point.start }}</div>
+      <div class="col-md-4">{{ point.end }}</div>
+      <div class="col-md">{{ point.lat }}</div>
+      <div class="col-md">{{ point.lng }}</div>
+    </li>
+  </ul>
+</div>

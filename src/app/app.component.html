@@ -11,7 +11,7 @@
     <agm-map class="sebm-google-map-container"
         *ngIf="showMap" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
         <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-        <sebm-google-map-directions [origin]="origin" [destination]="destination"></sebm-google-map-directions>
+        <google-map-directions [origin]="origin" [destination]="destination"></google-map-directions>
     </agm-map>
 </div>
 <!--point-list></point-list-->

@@ -1,14 +1,14 @@
 import { GoogleMapsAPIWrapper } from '@agm/core';
-import { Directive, Input, Output } from '@angular/core';
+import { Directive, Input, Output, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { NavigationService } from './navigation.service';
 import {} from '@types/googlemaps';
 
 declare var google: any;
 
 @Directive({
-    selector: 'sebm-google-map-directions'
+    selector: 'google-map-directions'
 })
-export class DirectionsMapDirective {
+export class DirectionsMapDirective  implements OnChanges {
     @Input() origin: any;
     @Input() destination: any;
     @Input() originPlaceId: any;
@@ -46,11 +46,15 @@ export class DirectionsMapDirective {
             }
             console.log('ROUTE', map, this.origin, this.destination);
 
-            const directionsService = new google.maps.DirectionsService;
+            if (this.directionsDisplay === undefined) {
+                this.directionsDisplay = new google.maps.DirectionsRenderer;
+            }
+
+                const directionsService = new google.maps.DirectionsService;
             const me = this;
 
-            const latLngA = new google.maps.LatLng({ lat: this.origin.lattitude, lng: this.origin.longitude });
-            const latLngB = new google.maps.LatLng({ lat: this.destination.lattitude, lng: this.destination.longitude });
+            const latLngA = new google.maps.LatLng({ lat: this.origin.latitude, lng: this.origin.longitude });
+            const latLngB = new google.maps.LatLng({ lat: this.destination.latitude, lng: this.destination.longitude });
             this.directionsDisplay.setMap(map);
             this.directionsDisplay.setOptions({
                 polylineOptions: {
@@ -89,4 +93,21 @@ export class DirectionsMapDirective {
     private getcomputeDistance(latLngA: any, latLngB: any) {
         return (google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB) / 1000).toFixed(2);
     }
+
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.origin) {
+            if (changes.origin.currentValue !== changes.origin.previousValue) {
+                this.origin = changes.origin.currentValue;
+                console.log('Origin CHANGES', changes.origin.currentValue, this.origin);
+            }
+        }
+        if (changes.destination) {
+            if (changes.destination.currentValue !== changes.destination.previousValue) {
+                this.destination = changes.destination.currentValue;
+                console.log('Dest CHANGES', changes.destination.currentValue, this.destination);
+            }
+        }
+        this.updateDirections();
+    }
+
 }

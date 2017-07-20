@@ -1,23 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, Input, EventEmitter } from '@angular/core';
 
 import { Point } from './point';
 import { Points } from './points';
+import { DirectionsMapDirective } from './google-map.directive';
+import { NavigationService } from './navigation.service';
 
 @Component({
   selector:    'point-list',
-  templateUrl: './point-list.component.html'
+  templateUrl: './point-list.component.html',
+  styles: [`.plist {
+    height: 800px;
+    overflow: auto;
+    }`]
 })
 export class PointListComponent implements OnInit {
 //    points: Point[];
+    @Output() onPointSelected: EventEmitter<Point> = new EventEmitter();
     points: any;
-
-    constructor() { }
+    @ViewChild(DirectionsMapDirective) vc: DirectionsMapDirective;
+    constructor(private navigationService: NavigationService) { }
 
     ngOnInit() {
         this.points = Points;
     }
 
     selectPoint(point: Point) {
-        console.log(point);
+        this.navigationService.selectEndPoint(point);
     }
+
 }

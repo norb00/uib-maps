@@ -23,8 +23,9 @@
     margin: 10px;
 }
 
-.plist, .plist .table {
-    height: 800px !important;
+.plist {
+    height: 800px;
+    overflow: auto;
 }
 
 modal {

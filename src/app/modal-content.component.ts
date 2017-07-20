@@ -21,4 +21,5 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 export class NgbdModalContent {
 
   constructor(public activeModal: NgbActiveModal) {}
+
 }

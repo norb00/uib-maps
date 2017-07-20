@@ -1,9 +1,12 @@
-import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, NgZone, OnInit, ViewChild, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { AgmCoreModule, MapsAPILoader, AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
 import { DirectionsMapDirective } from './google-map.directive';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalContent } from './modal-content.component';
+import { NavigationService } from './navigation.service';
+import { Point } from './point';
+
 import {} from '@types/googlemaps';
 
 declare var google: any;
@@ -61,15 +64,41 @@ export class AppComponent implements OnInit {
     private ngZone: NgZone,
     private gmapsApi: GoogleMapsAPIWrapper,
     private _elementRef: ElementRef,
-    private modalService: NgbModal
-  ) { }
+    private modalService: NgbModal,
+    private navigationService: NavigationService
+  ) {
+    // navigationService.endPointSelected$.subscribe(
+    //   point => {
+    //     console.log('NAVIGATION SERVICE ', point);
+    //   });
+
+        navigationService.startPointSelected$.subscribe(
+            point => {
+                console.log('NAVIGATION SERVICE start', point);
+                this.vc.origin = { lattitude: point.lat, longitude: point.lng };
+            });
+
+        navigationService.endPointSelected$.subscribe(
+            point => {
+                console.log('NAVIGATION SERVICE end', point);
+                this.vc.destination = { lattitude: point.lat, longitude: point.lng };
+
+                if (this.vc.directionsDisplay === undefined) {
+                  this.mapsAPILoader.load().then(() => {
+                    this.vc.directionsDisplay = new google.maps.DirectionsRenderer;
+                  });
+                }
+
+                this.vc.updateDirections();
+              });
+    }
 
   ngOnInit() {
-    // this.map.triggerResize();
-    // set google maps defaults
+
     this.zoom = 8;
-    this.lat = 47.5011151657;
-    this.lng = 19.0531965145;
+
+    // set current position
+    this.setCurrentPosition();
     this.showMap = true;
 
     // create search FormControl
@@ -77,16 +106,14 @@ export class AppComponent implements OnInit {
     this.destinationInput = new FormControl();
     this.destinationOutput = new FormControl();
 
-    // set current position
-    //    this.setCurrentPosition();
 
     // load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
-      let autocompleteInput = new google.maps.places.Autocomplete(this.pickupInputElementRef.nativeElement, {
+      const autocompleteInput = new google.maps.places.Autocomplete(this.pickupInputElementRef.nativeElement, {
         types: ['address']
       });
 
-      let autocompleteOutput = new google.maps.places.Autocomplete(this.pickupOutputElementRef.nativeElement, {
+      const autocompleteOutput = new google.maps.places.Autocomplete(this.pickupOutputElementRef.nativeElement, {
         types: ['address']
       });
 
@@ -99,8 +126,9 @@ export class AppComponent implements OnInit {
     autocomplete.addListener('place_changed', () => {
       this.ngZone.run(() => {
         // get the place result
-        let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+        const place: google.maps.places.PlaceResult = autocomplete.getPlace();
         // verify result
+        console.log(place);
         if (place.geometry === undefined) {
           return;
         }
@@ -150,9 +178,20 @@ export class AppComponent implements OnInit {
   private setCurrentPosition() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
+        console.log('Position', position);
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
         this.zoom = 12;
+
+        const point: Point = {
+          id: 0,
+          lat: this.lat,
+          lng: this.lng,
+          start: '',
+          end: ''
+        }
+
+        this.navigationService.selectStartPoint(point);
       });
     }
   }

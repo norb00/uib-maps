@@ -1,5 +1,7 @@
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import { Directive, Input, Output } from '@angular/core';
+import { NavigationService } from './navigation.service';
+import {} from '@types/googlemaps';
 
 declare var google: any;
 
@@ -16,17 +18,39 @@ export class DirectionsMapDirective {
     @Input() estimatedTime: any;
     @Input() estimatedDistance: any;
 
-    constructor(private gmapsApi: GoogleMapsAPIWrapper) { }
+    private latLngA: any;
+    private latLngB: any;
+
+    constructor(
+        private gmapsApi: GoogleMapsAPIWrapper,
+        private navigationService: NavigationService
+    ) {
+        // navigationService.startPointSelected$.subscribe(
+        //     point => {
+        //         console.log('GMAP SERVICE start', point);
+        //         this.latLngA = { lat: point.lat, lng: point.lng };
+        //     });
+
+        // navigationService.endPointSelected$.subscribe(
+        //     point => {
+        //         console.log('GMAP SERVICE end', point);
+        //         this.latLngB = { lat: point.lat, lng: point.lng };
+        //         this.updateDirections(this.latLngA, this.latLngB);
+        //     });
+    }
+
     updateDirections() {
         this.gmapsApi.getNativeMap().then(map => {
-            if (!this.originPlaceId || !this.destinationPlaceId) {
+            if (!this.origin || !this.destination) {
                 return;
             }
+            console.log('ROUTE', map, this.origin, this.destination);
 
-            let directionsService = new google.maps.DirectionsService;
-            let me = this;
-            let latLngA = new google.maps.LatLng({ lat: this.origin.latitude, lng: this.origin.longitude });
-            let latLngB = new google.maps.LatLng({ lat: this.destination.latitude, lng: this.destination.longitude });
+            const directionsService = new google.maps.DirectionsService;
+            const me = this;
+
+            const latLngA = new google.maps.LatLng({ lat: this.origin.lattitude, lng: this.origin.longitude });
+            const latLngB = new google.maps.LatLng({ lat: this.destination.lattitude, lng: this.destination.longitude });
             this.directionsDisplay.setMap(map);
             this.directionsDisplay.setOptions({
                 polylineOptions: {
@@ -37,9 +61,9 @@ export class DirectionsMapDirective {
             });
             this.directionsDisplay.setDirections({ routes: [] });
             directionsService.route({
-                origin: { placeId: this.originPlaceId },
-                destination: { placeId: this.destinationPlaceId },
-                avoidHighways: true,
+                origin: latLngA,
+                destination: latLngB,
+                avoidHighways: false,
                 travelMode: google.maps.DirectionsTravelMode.DRIVING
                 // travelMode: 'DRIVING'
             }, function (response: any, status: any) {
@@ -48,7 +72,7 @@ export class DirectionsMapDirective {
                     me.directionsDisplay.setDirections(response);
                     map.setZoom(30);
                     console.log(me.getcomputeDistance (latLngA, latLngB));
-                    let point = response.routes[0].legs[0];
+                    const point = response.routes[0].legs[0];
                     me.estimatedTime = point.duration.text;
                     me.estimatedDistance = point.distance.text;
                     console.log(me.estimatedTime);

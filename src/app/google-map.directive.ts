@@ -1,6 +1,7 @@
 import { GoogleMapsAPIWrapper } from '@agm/core';
 import { Directive, Input, Output, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { NavigationService } from './navigation.service';
+import * as _ from 'lodash';
 import {} from '@types/googlemaps';
 
 declare var google: any;
@@ -44,13 +45,13 @@ export class DirectionsMapDirective  implements OnChanges {
             if (!this.origin || !this.destination) {
                 return;
             }
-            console.log('ROUTE', map, this.origin, this.destination);
+            console.log('ROUTE', this.origin, this.destination);
 
             if (this.directionsDisplay === undefined) {
                 this.directionsDisplay = new google.maps.DirectionsRenderer;
             }
 
-                const directionsService = new google.maps.DirectionsService;
+            const directionsService = new google.maps.DirectionsService;
             const me = this;
 
             const latLngA = new google.maps.LatLng({ lat: this.origin.latitude, lng: this.origin.longitude });
@@ -96,14 +97,16 @@ export class DirectionsMapDirective  implements OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes.origin) {
-            if (changes.origin.currentValue !== changes.origin.previousValue) {
-                this.origin = changes.origin.currentValue;
+            if (!_.isEqual(changes.origin.currentValue, changes.origin.previousValue)) {
+//            if (changes.origin.currentValue !== changes.origin.previousValue) {
+//                this.origin = changes.origin.currentValue;
                 console.log('Origin CHANGES', changes.origin.currentValue, this.origin);
             }
         }
         if (changes.destination) {
-            if (changes.destination.currentValue !== changes.destination.previousValue) {
-                this.destination = changes.destination.currentValue;
+            if (!_.isEqual(changes.destination.currentValue, changes.destination.previousValue)) {
+//            if (changes.destination.currentValue !== changes.destination.previousValue) {
+//                this.destination = changes.destination.currentValue;
                 console.log('Dest CHANGES', changes.destination.currentValue, this.destination);
             }
         }

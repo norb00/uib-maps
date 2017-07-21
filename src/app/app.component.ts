@@ -36,8 +36,8 @@ export class AppComponent implements OnInit {
   public estimatedDistance: any;
 
 
-  public origin = { longitude: 4.333, latitude: -1.2222 };  // its a example aleatory position
-  public destination = { longitude: 22.311, latitude: -0.123 };  // its a example aleatory position
+  public origin = { longitude: undefined, latitude: undefined };  // its a example aleatory position
+  public destination = { longitude: undefined, latitude: undefined };  // its a example aleatory position
 
   public showMap: boolean;
 
@@ -195,6 +195,8 @@ export class AppComponent implements OnInit {
 
         this.navigationService.selectStartPoint(point);
       });
+    } else {
+      alert('NO GEOLOCATION :( ');
     }
   }
 

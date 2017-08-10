@@ -3,6 +3,7 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 <div class="container-fluid">
+    <span class="glyphicon glyphicon-record" (click)="showPosition()"></span>
     <span class="glyphicon glyphicon-align-justify" (click)="openList()">LIST</span>
     <div class="form-group">
         <input placeholder="Enter source location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #pickupInput [formControl]="destinationInput">
@@ -14,6 +15,7 @@
         <google-map-directions [origin]="origin" [destination]="destination"></google-map-directions>
     </agm-map>
 </div>
+<div class="logcontainer" id="logcontainer">{{ errorLog }}</div>
 <!--point-list></point-list-->
 
 <!--div class="container">

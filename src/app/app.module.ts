@@ -4,7 +4,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 
 import { DirectionsMapDirective } from './google-map.directive';
-import { PointListComponent } from './points-list.component';
+import { PointListComponent } from './point-list/points-list.component';
 import { NgbdModalContent } from './modal-content.component';
 import { NavigationService } from './navigation.service';
 

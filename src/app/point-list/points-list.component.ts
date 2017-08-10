@@ -1,17 +1,14 @@
 import { Component, OnInit, ViewChild, Output, Input, EventEmitter } from '@angular/core';
 
-import { Point } from './point';
-import { Points } from './points';
-import { DirectionsMapDirective } from './google-map.directive';
-import { NavigationService } from './navigation.service';
+import { Point } from '../point';
+import { Points } from '../points';
+import { DirectionsMapDirective } from '../google-map.directive';
+import { NavigationService } from '../navigation.service';
 
 @Component({
   selector:    'point-list',
   templateUrl: './point-list.component.html',
-  styles: [`.plist {
-    height: 800px;
-    overflow: auto;
-    }`]
+  styleUrls: ['./point-list.component.css']
 })
 export class PointListComponent implements OnInit {
 //    points: Point[];

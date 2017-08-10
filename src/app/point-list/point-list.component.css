@@ -1,0 +1,9 @@
+.plist {
+    height: 800px;
+    overflow: auto;
+}
+
+li:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}

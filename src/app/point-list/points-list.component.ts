@@ -6,7 +6,7 @@ import { DirectionsMapDirective } from '../google-map.directive';
 import { NavigationService } from '../navigation.service';
 
 @Component({
-  selector:    'point-list',
+  selector:    'app-point-list',
   templateUrl: './point-list.component.html',
   styleUrls: ['./point-list.component.css']
 })

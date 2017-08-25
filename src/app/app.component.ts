@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { AgmCoreModule, MapsAPILoader, AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
 import { DirectionsMapDirective } from './google-map.directive';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdModalContent } from './modal-content.component';
+import { ModalComponent } from './modal/modal.component';
 import { NavigationService } from './navigation.service';
 import { Point } from './point';
 
@@ -193,8 +193,8 @@ export class AppComponent implements OnInit {
 
         if ('geolocation' in navigator) {
 
-            navigator.geolocation.watchPosition((position) => {
-                console.log('Position', position);
+            navigator.geolocation.getCurrentPosition((position) => {
+                console.log('Position changed', position);
                 this.errorLog = JSON.stringify(position);
 
                 this.lat = position.coords.latitude;
@@ -222,13 +222,9 @@ export class AppComponent implements OnInit {
         }
     }
 
-    private getMapCusotmStyles() {
-        // Write your Google Map Custom Style Code Here.
-    }
-
     private openList() {
         console.log('open list');
-        this.modalRef = this.modalService.open(NgbdModalContent, {
+        this.modalRef = this.modalService.open(ModalComponent, {
             windowClass: 'modalw',
             size: 'lg'
         });
@@ -243,12 +239,12 @@ export class AppComponent implements OnInit {
 
        if ('geolocation' in navigator) {
            navigator.geolocation.getCurrentPosition((point) => {
-               alert(point);
+               // alert(point);
                console.log(point);
            },
            (error) => {
                alert(error);
-               console.log(error);
+               // console.log(error);
            }, watchPositionOptions);
        }
     }

@@ -5,19 +5,19 @@ import { AgmCoreModule } from '@agm/core';
 
 import { DirectionsMapDirective } from './google-map.directive';
 import { PointListComponent } from './point-list/points-list.component';
-import { NgbdModalContent } from './modal-content.component';
 import { NavigationService } from './navigation.service';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DirectionsMapDirective,
     PointListComponent,
-    NgbdModalContent
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +28,7 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule
   ],
   providers: [ NavigationService ],
-  entryComponents: [ NgbdModalContent ],
+  entryComponents: [ ModalComponent ],
   schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })

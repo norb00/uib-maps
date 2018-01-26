@@ -1,0 +1,22 @@
+<div class="container-fluid pt-15">
+    <agm-map class="sebm-google-map-container"
+        [latitude]="point.lat"
+        [longitude]="point.lng"
+        [zoom]="zoom"
+        (mapClick)="mapClicked($event)">
+            <agm-marker
+                [latitude]="point.lat"
+                [longitude]="point.lng"
+                [isDraggable]="true"
+
+                (markerClick)="clickedMarker(m.label, i)"
+                [markerDraggable]="true"
+                (dragEnd)="markerDragEnd(m, $event)">
+            </agm-marker>
+    </agm-map>
+    <input type="text" #start value="{{point.start}}" />
+    <input type="text" #end value="{{point.end}}" />
+    <input type="text" #lat [value]="point.lat" (keyup)="point.lat=$event.target.value" />
+    <input type="text" #lng [value]="point.lng" (keyup)="point.lng=$event.target.value" />
+
+</div>

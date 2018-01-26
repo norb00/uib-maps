@@ -14,8 +14,12 @@ import { AppComponent } from './app.component';
 import { ModalComponent } from './page-components/modal/modal.component';
 import { MenuComponent } from './page-components/menu/menu.component';
 import { NavigationPageComponent } from './pages/navigation/navigation-page.component';
+import { RacersPageComponent } from './pages/racers/racers-page.component';
+import { IndexPageComponent } from './pages/index/index-page.component';
+import { CheckpointsPageComponent } from './pages/checkpoints/checkpoints-page.component';
 
-import { ROUTING } from './app.routing'
+import { ROUTING } from './app.routing';
+import { PointSelectComponent } from './page-components/point-select/point-select.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { ROUTING } from './app.routing'
     PointListComponent,
     ModalComponent,
     MenuComponent,
-    NavigationPageComponent
+    NavigationPageComponent,
+    RacersPageComponent,
+    IndexPageComponent,
+    CheckpointsPageComponent,
+    PointSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +44,7 @@ import { ROUTING } from './app.routing'
     ROUTING
   ],
   providers: [ NavigationService ],
-  entryComponents: [ ModalComponent ],
+  entryComponents: [ ModalComponent, PointSelectComponent ],
   schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })

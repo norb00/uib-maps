@@ -1,11 +1,9 @@
-<div class="plist">
-  <ul class="list-group border-1">
-    <li *ngFor="let point of points" (click)="selectPoint(point)" class="point-element list-group-item my-2">
-      <div class="col-md-1">{{ point.id }}</div>
-      <div class="col-md-4">{{ point.start }}</div>
-      <div class="col-md-4">{{ point.end }}</div>
-      <div class="col-md">{{ point.lat }}</div>
-      <div class="col-md">{{ point.lng }}</div>
-    </li>
-  </ul>
+<div class="container-fluid">
+    <div class="row" *ngFor="let point of points" (click)="selectPoint(point)" class="point-element list-group-item my-2">
+        <div class="col-1">{{ point.id }}</div>
+        <div class="col">{{ point.start }}</div>
+        <div class="col">{{ point.end }}</div>
+        <div class="col">{{ point.lat }}</div>
+        <div class="col">{{ point.lng }}</div>
+    </div>
 </div>

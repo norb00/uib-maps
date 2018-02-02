@@ -229,16 +229,30 @@ export class NavigationPageComponent implements OnInit {
             timeout: 5000,
             maximumAge: 0
         };
+        jQuery.post( 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCLYQSecfjnLhKNydpPtkXjS_KK5c7zKFo',
+        (success) => {
+            console.log({coords: {latitude: success.location.lat, longitude: success.location.lng}});
+        })
+        .fail(function(err) {
+            alert('API Geolocation error! \n\n' + err);
+        });
 
        if ('geolocation' in navigator) {
            navigator.geolocation.getCurrentPosition((point) => {
-               // alert(point);
-               console.log(point);
+                alert(JSON.stringify(point));
+                console.log(point);
            },
            (error) => {
-               alert(error);
-               // console.log(error);
-           }, watchPositionOptions);
+                alert(JSON.stringify(error));
+                console.log(error);
+                jQuery.post( 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCLYQSecfjnLhKNydpPtkXjS_KK5c7zKFo',
+                (success) => {
+                    console.log({coords: {latitude: success.location.lat, longitude: success.location.lng}});
+                })
+                .fail(function(err) {
+                    alert('API Geolocation error! \n\n' + err);
+                });
+            }, watchPositionOptions);
        }
     }
 

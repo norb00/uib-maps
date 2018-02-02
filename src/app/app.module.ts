@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DirectionsMapDirective } from './google-map.directive';
 import { PointListComponent } from './point-list/points-list.component';
 import { NavigationService } from './navigation.service';
+import { RacersService } from './racers.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -20,32 +21,37 @@ import { CheckpointsPageComponent } from './pages/checkpoints/checkpoints-page.c
 
 import { ROUTING } from './app.routing';
 import { PointSelectComponent } from './page-components/point-select/point-select.component';
+import { CheckpointsService } from './checkpoints.service';
+import { RacersSelectComponent } from './page-components/racers-select/racers-select.component';
+import { TimeSelectComponent } from './page-components/time-select/time-select.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DirectionsMapDirective,
-    PointListComponent,
-    ModalComponent,
-    MenuComponent,
-    NavigationPageComponent,
-    RacersPageComponent,
-    IndexPageComponent,
-    CheckpointsPageComponent,
-    PointSelectComponent
-  ],
-  imports: [
-    BrowserModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyCLYQSecfjnLhKNydpPtkXjS_KK5c7zKFo', libraries: ['places'] }),
-    NgbModule.forRoot(),
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ROUTING
-  ],
-  providers: [ NavigationService ],
-  entryComponents: [ ModalComponent, PointSelectComponent ],
-  schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        DirectionsMapDirective,
+        PointListComponent,
+        ModalComponent,
+        MenuComponent,
+        NavigationPageComponent,
+        RacersPageComponent,
+        IndexPageComponent,
+        CheckpointsPageComponent,
+        PointSelectComponent,
+        RacersSelectComponent,
+        TimeSelectComponent
+    ],
+    imports: [
+        BrowserModule,
+        AgmCoreModule.forRoot({ apiKey: 'AIzaSyCLYQSecfjnLhKNydpPtkXjS_KK5c7zKFo', libraries: ['places'] }),
+        NgbModule.forRoot(),
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ROUTING
+    ],
+    providers: [ NavigationService, RacersService, CheckpointsService  ],
+    entryComponents: [ ModalComponent, PointSelectComponent ],
+    schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

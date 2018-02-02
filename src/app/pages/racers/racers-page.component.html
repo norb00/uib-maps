@@ -1,3 +1,17 @@
-<p>
-  racers-page works!
-</p>
+<div class="container-fluid">
+    <h4>Racers</h4>
+    <div class="row" *ngFor="let racer of racers" (click)="selectRacer(racer)" class="point-element list-group-item my-2">
+        <div class="col-1">{{ racer.id }}</div>
+        <div class="col">{{ racer.name }}</div>
+        <div class="col" (click)="deleteRacer(racer)">x</div>
+    </div>
+    <div class="row" class="point-element list-group-item my-2">
+        <div class="col-1"></div>
+        <div class="col"><input type="text" #newRacer /></div>
+        <div class="col">
+            <button type="button" class="btn btn-primary"
+                (click)="addRacer(newRacer.value)">ADD</button>
+        </div>
+    </div>
+
+</div>

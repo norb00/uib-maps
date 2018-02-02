@@ -1,0 +1,8 @@
+<div>
+    <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary nav-link dropdown-toggle" id="racerSelector" ngbDropdownToggle>{{ selectedRacer.name }}</button>
+        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="racerSelector">
+            <button class="dropdown-item" *ngFor="let racer of racers" (click)="selectRacer(racer)">{{racer.name}}</button>
+        </div>
+    </div>
+</div>

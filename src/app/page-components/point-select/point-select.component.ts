@@ -20,7 +20,6 @@ export class PointSelectComponent implements OnInit {
     public markers: Marker[];
     @Input() point: Point;
 
-
     @ViewChild(AgmMap) map: AgmMap;
 
     constructor(

@@ -35,6 +35,7 @@ System.config({
     'angular2-google-maps/core': 'npm:angular2-google-maps/core/core.umd.js',
 
     '@ng-bootstrap/ng-bootstrap': 'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
+    'angular2-fontawesome': 'node_modules/angular2-fontawesome',
   },
   //packages defines our app package
   packages: {
@@ -44,6 +45,7 @@ System.config({
     },
     rxjs: {
       defaultExtension: 'js'
-    }
+    },
+    'angular2-fontawesome': { defaultExtension: 'js' }
   }
 });

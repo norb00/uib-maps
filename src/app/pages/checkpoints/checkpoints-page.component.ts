@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild, Output, Input, EventEmitter } from '@angular/core';
-import { NgbModule, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbModal, NgbActiveModal, NgbTimepicker, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { Point } from '../../point';
 import { Points } from '../../points';
 import { PointSelectComponent } from '../../page-components/point-select/point-select.component';
+import { RacersSelectComponent } from '../../page-components/racers-select/racers-select.component';
+import { RacersService } from '../../racers.service';
+import { CheckpointsService } from '../../checkpoints.service';
 
 @Component({
   selector: 'app-checkpoints-page',
@@ -13,11 +16,13 @@ import { PointSelectComponent } from '../../page-components/point-select/point-s
 export class CheckpointsPageComponent implements OnInit {
 
     private points: any;
-    constructor(private modalService: NgbModal) {
-        }
+    constructor(private modalService: NgbModal,
+                private checkpointsService: CheckpointsService,
+                private racersService: RacersService
+            ) {}
 
     ngOnInit() {
-        this.points = Points;
+        this.points = this.checkpointsService.getCheckpoints();
     }
 
     selectPoint(point: Point) {
@@ -30,4 +35,18 @@ export class CheckpointsPageComponent implements OnInit {
         pointSelectModal.componentInstance.point = point;
     }
 
+    selectRacer(racer, point) {
+        point.racer = racer.id;
+        console.log('selectracer', racer, point);
+    }
+
+    setTime(time, point) {
+        point.time = time;
+        console.log('selectTime', time, point);
+    }
+
+    saveCheckpoints() {
+        console.log(this.checkpointsService.getCheckpoints());
+//        console.log(this.points);
+    }
 }

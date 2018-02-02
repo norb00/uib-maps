@@ -3,42 +3,76 @@ export const Points = [{
     start: 'Club Aliga',
     end: 'Balatonkenese',
     lat: 47.032774,
-    lng: 18.111328
+    lng: 18.111328,
+    racer: {
+        id: 1
+    },
+    time: {
+        hour: 12,
+        minute: 30
+    }
   },
   {
     id: 2,
     start: 'Balatonkenese',
     end: 'Balatonfűzfő',
     lat: 47.051448,
-    lng: 18.054212
+    lng: 18.054212,
+    racer: {
+        id: 2
+    },
+    time: {
+        hour: 12,
+        minute: 30
+    }
   },
   {
     id: 3,
     start: 'Balatonfűzfő',
     end: 'Balatonalmádi 1',
     lat: 47.040562,
-    lng: 18.019783
+    lng: 18.019783,
+    racer: {
+        id: 3
+    },
+    time: {
+        hour: 12,
+        minute: 30
+    }
   },
   {
     id: 4,
     start: 'Balatonalmádi 1',
     end: 'Balatonalmádi 2',
     lat: 47.022895,
-    lng: 18.008984
+    lng: 18.008984,
+    racer: {
+        id: 4
+    },
+    time: {
+        hour: 12,
+        minute: 30
+    }
   },
   {
     id: 5,
     start: 'Balatonalmádi 2',
     end: 'Alsóörs',
     lat: 46.985069,
-    lng: 17.977667
+    lng: 17.977667,
+    racer: {
+        id: 1
+    }
   },
   {
     id: 6,
     start: 'Alsóörs',
     end: 'Csopak',
     lat: 46.969438,
-    lng: 17.935626
+    lng: 17.935626,
+    racer: {
+        id: 2
+    }
   },
   {
     id: 7,

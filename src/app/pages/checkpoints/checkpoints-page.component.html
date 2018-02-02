@@ -1,12 +1,24 @@
 <div class="container-fluid">
     <h4>Checkpoints</h4>
-    <div class="container-fluid">
-        <div class="row" *ngFor="let point of points" (click)="selectPoint(point)" class="point-element list-group-item my-2">
-            <div class="col-1">{{ point.id }}</div>
-            <div class="col">{{ point.start }}</div>
-            <div class="col">{{ point.end }}</div>
-            <div class="col">{{ point.lat }}</div>
-            <div class="col">{{ point.lng }}</div>
+    <div class="row">
+        <div class="col-11">
+            <div class="row" *ngFor="let point of points" class="point-element list-group-item my-2">
+                <div class="col-1" (click)="selectPoint(point)">{{ point.id }}</div>
+                <div class="col" (click)="selectPoint(point)">{{ point.start }}</div>
+                <div class="col" (click)="selectPoint(point)">{{ point.end }}</div>
+                <div class="col" (click)="selectPoint(point)">{{ point.lat }}</div>
+                <div class="col" (click)="selectPoint(point)">{{ point.lng }}</div>
+                <div class="col">
+                    <app-racers-select [racer]="point.racer" (racerChange)="selectRacer($event, point)"></app-racers-select>
+                </div>
+                <div class="col">
+                    <app-time-select [time]="point.time" (timeChange)="setTime($event, point)"></app-time-select>
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+                <button type="button" class="btn btn-primary"
+                (click)="saveCheckpoints()">SAVE</button>
         </div>
     </div>
 </div>

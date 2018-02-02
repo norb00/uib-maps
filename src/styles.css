@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 .modal-custom .modal-content {
-    display: inline-block;
+/*    display: inline-block;
     width: calc(100vh - 20px);
-    height: calc(100vh - 20px);
+    height: calc(100vh - 20px); */
 }

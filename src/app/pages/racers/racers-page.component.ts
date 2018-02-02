@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RacersService } from '../../racers.service';
+
 
 @Component({
   selector: 'app-racers-page',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RacersPageComponent implements OnInit {
 
-  constructor() { }
+    private racers;
+    constructor(private racersService: RacersService) {
+        this.racers = racersService.getRacers();
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
+    editRacer(racer) {
+        console.log('Edit racer: ', racer);
+    }
+
+    selectRacer(racer) {
+        console.log('Select racer: ', racer);
+    }
+
+    addRacer(racer) {
+        console.log('Add racer: ', racer);
+        this.racersService.newRacer(racer);
+    }
+
+    deleteRacer(racer) {
+        console.log('Delete racer: ', racer);
+        this.racersService.deleteRacer(racer);
+    }
 }

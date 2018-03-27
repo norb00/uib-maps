@@ -9,11 +9,11 @@
       "urls": [
         "https://norb00.github.io/uib-maps/favicon.ico",
         "https://norb00.github.io/uib-maps/index.html",
-        "https://norb00.github.io/uib-maps/inline.4d5becc750dd4af79824.bundle.js",
-        "https://norb00.github.io/uib-maps/main.070e25fdfeab6b3a85f5.bundle.js",
+        "https://norb00.github.io/uib-maps/inline.753b54447ac984ecfcbb.bundle.js",
+        "https://norb00.github.io/uib-maps/main.2007cee46009e992d109.bundle.js",
         "https://norb00.github.io/uib-maps/polyfills.07032959b173af55e6da.bundle.js",
         "https://norb00.github.io/uib-maps/scripts.2c8f65942a7cc044206c.bundle.js",
-        "https://norb00.github.io/uib-maps/styles.c581c152a74c025e7c2a.bundle.css"
+        "https://norb00.github.io/uib-maps/styles.5e5de43dba9449b8459c.bundle.css"
       ],
       "patterns": []
     },
@@ -22,6 +22,7 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
+        "https://norb00.github.io/uib-maps/assets/images/ultrabalaton.jpg",
         "https://norb00.github.io/uib-maps/assets/images/favicons/apple-touch-icon-144x144.png",
         "https://norb00.github.io/uib-maps/assets/images/favicons/favicon-194x194.png",
         "https://norb00.github.io/uib-maps/assets/images/favicons/favicon-512x512.png"
@@ -31,15 +32,16 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://norb00.github.io/uib-maps/inline.4d5becc750dd4af79824.bundle.js": "ffeed691bf97efb2826b28dd5029fc57dad037de",
+    "https://norb00.github.io/uib-maps/inline.753b54447ac984ecfcbb.bundle.js": "f3188456849665b8a3256e4949f0ca7ab66eb072",
+    "https://norb00.github.io/uib-maps/assets/images/ultrabalaton.jpg": "85f4018d5379c2f18bb5ad294e7ba39f9df4a583",
+    "https://norb00.github.io/uib-maps/main.2007cee46009e992d109.bundle.js": "0cfdf8aea578da293cc6455d9d331de506779570",
     "https://norb00.github.io/uib-maps/assets/images/favicons/apple-touch-icon-144x144.png": "697ccfd7b6783f9e962fe75ef049dd7056af3bb4",
-    "https://norb00.github.io/uib-maps/main.070e25fdfeab6b3a85f5.bundle.js": "85a703f1a0f4f70a1113c37e6318cd590a528fdf",
-    "https://norb00.github.io/uib-maps/assets/images/favicons/favicon-194x194.png": "a04457de564272d9ddf2cb6e0ff88e259905794a",
     "https://norb00.github.io/uib-maps/polyfills.07032959b173af55e6da.bundle.js": "b981fb72cc7adbd372b5b02405e590938a032a92",
-    "https://norb00.github.io/uib-maps/assets/images/favicons/favicon-512x512.png": "3cb8b39ef9ce8593f316804e07d9d26ec9a341c7",
+    "https://norb00.github.io/uib-maps/assets/images/favicons/favicon-194x194.png": "a04457de564272d9ddf2cb6e0ff88e259905794a",
     "https://norb00.github.io/uib-maps/scripts.2c8f65942a7cc044206c.bundle.js": "5efbf9ce2a64a40c1600ee353d01415d9577c4cb",
-    "https://norb00.github.io/uib-maps/styles.c581c152a74c025e7c2a.bundle.css": "8615690d16bb1e46d0190d268e21821366a236a6",
+    "https://norb00.github.io/uib-maps/assets/images/favicons/favicon-512x512.png": "3cb8b39ef9ce8593f316804e07d9d26ec9a341c7",
+    "https://norb00.github.io/uib-maps/styles.5e5de43dba9449b8459c.bundle.css": "3a395e98c02b8ab7bb2c5caa608af510ee5023aa",
     "https://norb00.github.io/uib-maps/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://norb00.github.io/uib-maps/index.html": "91a03dc64fa6addde794965b6398bfd2f5db46da"
+    "https://norb00.github.io/uib-maps/index.html": "b4ef54382635f30e38c0a51ef000f6d58fa8fedd"
   }
 }

@@ -1,6 +1,9 @@
 .sebm-google-map-container, sebm-google-map {
-    height: 600px;
+    height: 90vh;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
 .form-control {

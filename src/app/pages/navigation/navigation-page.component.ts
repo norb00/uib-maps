@@ -5,7 +5,7 @@ import { DirectionsMapDirective } from '../../google-map.directive';
 import { NgbModule, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../../page-components/modal/modal.component';
 import { NavigationService } from '../../navigation.service';
-import { Point } from '../../point';
+import { Point } from '../../data-types';
 
 import {} from '@types/googlemaps';
 
@@ -215,7 +215,7 @@ export class NavigationPageComponent implements OnInit {
         }
     }
 
-    private openList(content: any) {
+    public openList() {
         console.log('open list');
         this.modalRef = this.modalService.open(ModalComponent, {
             size: 'lg',
@@ -223,7 +223,7 @@ export class NavigationPageComponent implements OnInit {
         });
     }
 
-    private showPosition() {
+    public showPosition() {
         const watchPositionOptions = {
             enableHighAccuracy: false,
             timeout: 5000,

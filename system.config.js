@@ -35,8 +35,13 @@ System.config({
     'angular2-google-maps/core': 'npm:angular2-google-maps/core/core.umd.js',
 
     '@ng-bootstrap/ng-bootstrap': 'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
-    'angular2-fontawesome': 'node_modules/angular2-fontawesome',
-  },
+
+    '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
+
+    // CDK individual packages
+    '@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',
+    '@angular/cdk/a11y': 'npm:@angular/cdk/bundles/cdk-a11y.umd.js'
+},
   //packages defines our app package
   packages: {
     app: {
@@ -46,6 +51,5 @@ System.config({
     rxjs: {
       defaultExtension: 'js'
     },
-    'angular2-fontawesome': { defaultExtension: 'js' }
   }
 });

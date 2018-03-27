@@ -9,8 +9,8 @@ import { NgbModule, NgbDropdown, NgbDropdownModule } from '@ng-bootstrap/ng-boot
 })
 export class RacersSelectComponent implements OnInit {
 
-    private racers;
-    private selectedRacer = {name: 'Select'};
+    public racers;
+    public selectedRacer = {name: 'Select'};
 
     @Input() racer;
     @Output() racerChange = new EventEmitter();

@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Racer } from './data-types';
+import { race } from 'q';
 
 @Injectable()
 export class RacersService {
 
-    private racers: any[];
+    private racers: Racer[];
     constructor() {
         this.racers = [
             { id: 1, name: 'Hanna' },
@@ -25,7 +27,7 @@ export class RacersService {
         })
     }
 
-    deleteRacer(racer) {
+    deleteRacer(racer: Racer) {
         const index = this.racers.indexOf(racer);
         this.racers.splice(index, 1);
         // this.racers.find((racer, index) => {
@@ -35,9 +37,13 @@ export class RacersService {
         // });
     }
 
-    newRacer(newRacer) {
+    newRacer(newRacerName: string) {
         const newId = this.racers[this.racers.length - 1].id + 1;
-        this.racers.push({id: newId, name: newRacer});
+        this.racers.push({id: newId, name: newRacerName});
     }
 
+    modifyRacer(racer: Racer) {
+        const index = this.racers.indexOf(racer);
+        this.racers[index].name = race.name;
+    }
 }

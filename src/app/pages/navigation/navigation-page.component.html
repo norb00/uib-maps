@@ -1,6 +1,6 @@
 <div class="container-fluid pt-15">
-    <i class="fa fa-location-arrow fa-3x" aria-hidden="true" (click)="showPosition()"></i>
-    <i class="fa fa-list fa-3x" aria-hidden="true" (click)="openList(content)"> LIST</i>
+    <i class="fa fa-location-arrow fa-3x material-icons" aria-hidden="true" (click)="showPosition()">search</i>
+    <i class="fa fa-list fa-3x material-icons" aria-hidden="true" (click)="openList()">list</i>
     <div class="form-group">
         <input placeholder="Enter source location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #pickupInput [formControl]="destinationInput">
         <input placeholder="Enter destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #pickupOutput [formControl]="destinationOutput" >

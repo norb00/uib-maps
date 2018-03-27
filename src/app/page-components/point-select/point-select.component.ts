@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, OnInit, ViewChild, Input, Output, 
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl } from '@angular/forms';
 import { AgmCoreModule, MapsAPILoader, AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
-import { Point, Marker } from '../../point';
+import { Point, Marker } from '../../data-types';
 
 import {} from '@types/googlemaps';
 
@@ -18,6 +18,9 @@ declare var jQuery: any;
 export class PointSelectComponent implements OnInit {
     public zoom: number;
     public markers: Marker[];
+    public i: any;
+    public m: any;
+
     @Input() point: Point;
 
     @ViewChild(AgmMap) map: AgmMap;

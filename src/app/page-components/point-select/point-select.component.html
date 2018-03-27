@@ -1,22 +1,33 @@
-<div class="container-fluid pt-15">
-    <agm-map class="sebm-google-map-container"
-        [latitude]="point.lat"
-        [longitude]="point.lng"
-        [zoom]="zoom"
-        (mapClick)="mapClicked($event)">
-            <agm-marker
+<div class="modal-header">
+    <h4 class="modal-title">Select Point</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container-fluid pt-15">
+            <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
+            <agm-map class="sebm-google-map-container"
                 [latitude]="point.lat"
                 [longitude]="point.lng"
-                [isDraggable]="true"
+                [zoom]="zoom"
+                (mapClick)="mapClicked($event)">
+                    <agm-marker
+                        [latitude]="point.lat"
+                        [longitude]="point.lng"
+                        [isDraggable]="true"
 
-                (markerClick)="clickedMarker(m.label, i)"
-                [markerDraggable]="true"
-                (dragEnd)="markerDragEnd(m, $event)">
-            </agm-marker>
-    </agm-map>
-    <input type="text" #start value="{{point.start}}" />
-    <input type="text" #end value="{{point.end}}" />
-    <input type="text" #lat [value]="point.lat" (keyup)="point.lat=$event.target.value" />
-    <input type="text" #lng [value]="point.lng" (keyup)="point.lng=$event.target.value" />
-
-</div>
+                        (markerClick)="clickedMarker(m.label, i)"
+                        [markerDraggable]="true"
+                        (dragEnd)="markerDragEnd(m, $event)">
+                    </agm-marker>
+            </agm-map>
+            <input type="text" #start value="{{point.start}}" />
+            <input type="text" #end value="{{point.end}}" />
+            <input type="text" #lat [value]="point.lat" (keyup)="point.lat=$event.target.value" />
+            <input type="text" #lng [value]="point.lng" (keyup)="point.lng=$event.target.value" />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
+    </div>

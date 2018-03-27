@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Output, Input, EventEmitter } from '@angular/core';
 
-import { Point } from '../point';
+import { Point } from '../data-types';
 import { Points } from '../points';
 import { DirectionsMapDirective } from '../google-map.directive';
 import { NavigationService } from '../navigation.service';

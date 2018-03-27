@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RacersService } from '../../racers.service';
-
+import { Racer } from '../../data-types';
 
 @Component({
   selector: 'app-racers-page',
@@ -9,29 +9,33 @@ import { RacersService } from '../../racers.service';
 })
 export class RacersPageComponent implements OnInit {
 
-    private racers;
+    public racers;
     constructor(private racersService: RacersService) {
-        this.racers = racersService.getRacers();
     }
 
     ngOnInit() {
+        this.racers = this.racersService.getRacers();
     }
 
-    editRacer(racer) {
+    editRacer(racer: Racer) {
         console.log('Edit racer: ', racer);
     }
 
-    selectRacer(racer) {
+    selectRacer(racer: Racer) {
         console.log('Select racer: ', racer);
     }
 
-    addRacer(racer) {
-        console.log('Add racer: ', racer);
-        this.racersService.newRacer(racer);
+    addRacer(racerName: string) {
+        console.log('Add racer: ', racerName);
+        this.racersService.newRacer(racerName);
     }
 
-    deleteRacer(racer) {
+    deleteRacer(racer: Racer) {
         console.log('Delete racer: ', racer);
         this.racersService.deleteRacer(racer);
+    }
+
+    modifyRacerName(racer: Racer, $event) {
+        console.log(racer, $event);
     }
 }

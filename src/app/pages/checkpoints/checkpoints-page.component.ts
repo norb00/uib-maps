@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Output, Input, EventEmitter } from '@angular/core';
 import { NgbModule, NgbModal, NgbActiveModal, NgbTimepicker, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { Point } from '../../point';
+import { Point } from '../../data-types';
 import { Points } from '../../points';
 import { PointSelectComponent } from '../../page-components/point-select/point-select.component';
 import { RacersSelectComponent } from '../../page-components/racers-select/racers-select.component';
@@ -15,7 +15,7 @@ import { CheckpointsService } from '../../checkpoints.service';
 })
 export class CheckpointsPageComponent implements OnInit {
 
-    private points: any;
+    public points: any;
     constructor(private modalService: NgbModal,
                 private checkpointsService: CheckpointsService,
                 private racersService: RacersService

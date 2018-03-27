@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { Point } from './point';
+import { Point } from './data-types';
 
 @Injectable()
 export class NavigationService {

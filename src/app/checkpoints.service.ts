@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Point } from './point';
+import { Point } from './data-types';
 import { Points } from './points';
 
 @Injectable()

@@ -6,6 +6,12 @@ export class Point {
     lng: number;
 }
 
+export class Racer {
+    id: number;
+    name: string;
+}
+
+
 // just an interface for type safety.
 export class Marker {
     lat: number;

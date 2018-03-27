@@ -24,6 +24,7 @@ import { PointSelectComponent } from './page-components/point-select/point-selec
 import { CheckpointsService } from './checkpoints.service';
 import { RacersSelectComponent } from './page-components/racers-select/racers-select.component';
 import { TimeSelectComponent } from './page-components/time-select/time-select.component';
+import { RacersPageEditComponent } from './pages/racers/racers-page-edit/racers-page-edit.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import { TimeSelectComponent } from './page-components/time-select/time-select.c
         CheckpointsPageComponent,
         PointSelectComponent,
         RacersSelectComponent,
-        TimeSelectComponent
+        TimeSelectComponent,
+        RacersPageEditComponent
     ],
     imports: [
         BrowserModule,

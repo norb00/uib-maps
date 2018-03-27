@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-.modal-custom .modal-content {
-/*    display: inline-block;
-    width: calc(100vh - 20px);
-    height: calc(100vh - 20px); */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~material-design-icons/iconfont/material-icons.css';
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(35, 150, 211);
+    align-items: center;
+}
+
+app-ub-maps {
 }
